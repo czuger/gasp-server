@@ -1,4 +1,12 @@
+require 'json'
 require 'socket' # Provides TCPServer and TCPSocket classes
+
+playlists = {
+    "battle":["battle/battle01.mp3","battle/battle02.mp3","battle/battle03.mp3","battle/battle04.mp3","battle/battle05.mp3","battle/battle06.mp3"],
+    "sounds":["sounds/Forest"],
+    "Forest":["Forest/DayForest01.mp3","Forest/DayForest02.mp3","Forest/DayForest03.mp3","Forest/NightForest01.mp3","Forest/NightForest02.mp3","Forest/NightForest03.mp3","Forest/NightForest04.mp3"]}
+
+# p playlists[:Forest].to_json
 
 # Initialize a TCPServer object that will listen
 # on localhost:2345 for incoming connections.
@@ -15,11 +23,7 @@ loop do
   socket = server.accept
   p socket
 
-  # Read the first line of the request (the Request-Line)
-  request = socket.gets
-
-  # Log the request to the console for debugging
-  puts request
+  socket.puts playlists[:Forest].shuffle.to_json
 
   # Close the socket, terminating the connection
   socket.close

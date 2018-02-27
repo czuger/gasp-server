@@ -1,9 +1,6 @@
-.container
-  .row
+.row
+  = link_to 'Forêt', ambiant_change_path( ambiant: :forest ), class: 'btn btn-primary btn-lg col-12 my-buttons', role: 'button'
+.row
+  = link_to 'Battle', ambiant_change_path( ambiant: :battle ), class: 'btn btn-primary btn-lg col-12 my-buttons', role: 'button'
 
-
-= link_to 'Forêt', ambiant_change_path( ambiant: :forest ), class: 'btn btn-primary btn-lg col-12', role: "button"
-%hr
-= link_to 'Battle', ambiant_change_path( ambiant: :battle ), class: 'btn btn-primary btn-lg col-12', role: "button"
-
--#%a{ href: "ambia" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" }
+-#%a{ href: 'ambia' class='btn btn-primary btn-lg active' role='button' aria-pressed='true' }

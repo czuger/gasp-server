@@ -9,7 +9,9 @@ class LocalInterfaceThread
 
       loop do
         cr = command_reciever.accept
-        @queue << cr.gets.chomp
+        command = cr.gets.chomp
+        puts "Command received : #{command}"
+        @queue << command
       end
     }
   end

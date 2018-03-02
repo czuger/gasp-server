@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'admin/show'
+  get 'admin/start'
+  get 'admin/restart'
+  get 'admin/stop'
+
   get 'ambiant/show'
   get 'ambiant/change'
 

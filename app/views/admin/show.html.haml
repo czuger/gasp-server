@@ -1,0 +1,12 @@
+%h1 Admin
+
+= @server_running ? 'Background process on' : 'Background process off'
+
+%br
+= link_to 'Start', admin_start_path
+
+%br
+= link_to 'Restart', admin_restart_path
+
+%br
+= link_to 'Stop', admin_stop_path

@@ -1,5 +1,6 @@
 class AmbiantController < ApplicationController
   def show
+    @sounds_keys = JSON.parse( File.open('data/sounds.json','r').read ).keys
   end
 
   def change

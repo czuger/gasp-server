@@ -8,8 +8,8 @@ class RemoteInterfaceThread
 
       loop do
         command = @queue.pop
-        puts "Command sent : #{PLAYLISTS[command].shuffle.to_json}"
-        socket.puts PLAYLISTS[command].shuffle.to_json
+        puts "Command sent : #{@playlists[command].shuffle.to_json}"
+        socket.puts @playlists[command].shuffle.to_json
       end
     }
   end

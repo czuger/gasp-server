@@ -26,7 +26,7 @@ class AdminController < ApplicationController
   end
 
   def start_process
-    spawn('nohup ruby server/gasp-background-server.rb &')
+    spawn('ruby server/gasp-background-server.rb > log/background.log 2> log/background.err')
   end
 
   def stop_process

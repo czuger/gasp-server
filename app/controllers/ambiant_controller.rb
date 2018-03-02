@@ -5,7 +5,7 @@ class AmbiantController < ApplicationController
 
   def change
     command_reciever = UNIXSocket.new('/tmp/send_music_command')
-    command_reciever.puts params[:ambiant]
+    command_reciever.write params[:ambiant]
     command_reciever.close()
 
     redirect_to ambiant_show_path

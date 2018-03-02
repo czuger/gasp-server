@@ -10,7 +10,7 @@ class RemoteInterfaceThread
         command = @queue.pop
         puts "Command sent : #{@playlists[command].shuffle.to_json}"
         STDOUT.flush
-        socket.puts @playlists[command].shuffle.to_json
+        socket.write @playlists[command].shuffle.to_json
       end
     }
   end

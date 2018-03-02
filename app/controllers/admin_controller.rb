@@ -5,17 +5,20 @@ class AdminController < ApplicationController
 
   def start
     start_process
+    sleep(1)
     redirect_to admin_show_path
   end
 
   def restart
     stop_process
+    sleep(1)
     start_process
     redirect_to admin_show_path
   end
 
   def stop
     stop_process
+    sleep(1)
     redirect_to admin_show_path
   end
 

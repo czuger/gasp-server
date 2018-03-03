@@ -5,8 +5,9 @@ require_relative 'local_interface_thread'
 require_relative 'remote_interface_thread'
 require 'pp'
 
-queue = Queue.new
+Thread.abort_on_exception = true
 
+queue = Queue.new
 LocalInterfaceThread.new( queue )
 
 music_sender = TCPServer.new 6664

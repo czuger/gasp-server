@@ -3,12 +3,15 @@ require 'socket'
 require 'thread'
 require_relative 'local_interface_thread'
 require_relative 'remote_interface_thread'
+require_relative 'folders_listener'
 require 'pp'
 
 Thread.abort_on_exception = true
 
 queue = Queue.new
 LocalInterfaceThread.new( queue )
+
+Thread.new{ FoldersListener.new.wait }
 
 music_sender = TCPServer.new 6664
 p music_sender
@@ -27,7 +30,7 @@ loop do
   if remote_interface_thread
     puts "Killing #{remote_interface_thread}"
     remote_interface_thread.kill
-    pp remote_interface_thread
+    # pp remote_interface_thread
   end
 
   remote_interface_thread = RemoteInterfaceThread.new( socket, queue )

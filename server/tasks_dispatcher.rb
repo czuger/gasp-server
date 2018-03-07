@@ -6,9 +6,11 @@ class TasksDispatcher
     Thread.new{
       command, _ =  socket.recvfrom( 3 )
 
-      case when command
-             'SFO'
-             Folders.set( socket )
+      case command
+        when 'SET'
+          Folders.set( socket )
+        when 'MUS'
+          Folders.set( socket )
       end
     }
   end

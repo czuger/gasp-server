@@ -15,6 +15,7 @@ class Folders
         f_list.url_hash = SecureRandom.hex(16)
       }
       fl.folders = json_data['folders']
+      fl.email = json_data['email']
       fl.save!
       p fl
   end

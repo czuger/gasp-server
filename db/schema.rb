@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307075925) do
+ActiveRecord::Schema.define(version: 20180307113626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180307075925) do
     t.string "folders"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
     t.index ["guid"], name: "index_folders_lists_on_guid", unique: true
     t.index ["url_hash"], name: "index_folders_lists_on_url_hash", unique: true
   end

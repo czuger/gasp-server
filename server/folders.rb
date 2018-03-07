@@ -18,6 +18,8 @@ class Folders
       fl.email = json_data['email']
       fl.save!
       p fl
+      socket.write( fl.url_hash )
+      socket.close
   end
 
 end

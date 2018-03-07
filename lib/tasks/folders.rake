@@ -1,3 +1,5 @@
+# DEPRACATED : calling rake outside the shell is a pain in the ***
+
 namespace :folders do
   desc 'Create or update a folders set'
   task set: :environment do

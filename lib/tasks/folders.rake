@@ -2,6 +2,8 @@ namespace :folders do
   desc 'Create or update a folders set'
   task set: :environment do
 
+    # Magic required to be able to use arguments
+    # Comes from http://cobwwweb.com/4-ways-to-pass-arguments-to-a-rake-task
     ARGV.each { |a| task a.to_sym do ; end }
 
     communication_directory = '/tmp/gasp/'

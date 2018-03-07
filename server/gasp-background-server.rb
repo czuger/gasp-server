@@ -1,22 +1,19 @@
 require 'json'
 require 'socket'
 require 'thread'
+require 'pp'
+require_relative 'db'
 require_relative 'local_interface_thread'
 require_relative 'remote_interface_thread'
-require_relative 'folders_listener'
-require 'pp'
+require_relative 'tasks_dispatcher'
 
 Thread.abort_on_exception = true
 
 queue = Queue.new
 LocalInterfaceThread.new( queue )
 
-Thread.new{ FoldersListener.new.wait }
-
-music_sender = TCPServer.new 6664
-p music_sender
-
-remote_interface_thread = nil
+listener = TCPServer.new 6664
+p listener
 
 # loop infinitely, processing one incoming
 # connection at a time.
@@ -25,14 +22,15 @@ loop do
   # Wait until a client connects, then return a TCPSocket
   # that can be used in a similar fashion to other Ruby
   # I/O objects. (In fact, TCPSocket is a subclass of IO.)
-  socket = music_sender.accept
-  p socket
-  if remote_interface_thread
-    puts "Killing #{remote_interface_thread}"
-    remote_interface_thread.kill
-    # pp remote_interface_thread
-  end
+  socket = listener.accept
+  TasksDispatcher.process_connection( socket )
 
-  remote_interface_thread = RemoteInterfaceThread.new( socket, queue )
+  # if remote_interface_thread
+  #   puts "Killing #{remote_interface_thread}"
+  #   remote_interface_thread.kill
+  #   # pp remote_interface_thread
+  # end
+  #
+  # remote_interface_thread = RemoteInterfaceThread.new( socket, queue )
 
 end

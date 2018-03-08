@@ -4,8 +4,3 @@ one:
   guid: MyString
   url_hash: MyString
   folders: MyString
-
-two:
-  guid: MyString
-  url_hash: MyString
-  folders: MyString

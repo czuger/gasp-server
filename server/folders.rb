@@ -3,6 +3,7 @@ require 'socket'
 require 'thread'
 require 'pp'
 require 'fileutils'
+require_relative 'email'
 
 class Folders
 
@@ -29,6 +30,8 @@ class Folders
 
       puts 'About to close socket'
       socket.close
+
+      Email.send(fl.guid )
   end
 
 end

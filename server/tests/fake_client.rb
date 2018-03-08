@@ -17,7 +17,7 @@ p s
 puts 'About to write SET'
 s.puts 'SET'
 puts 'About to send JSON'
-s.puts '{"foo":"bar"}'
+s.puts '{"guid":"123456"}'
 
 STDOUT.flush
 

@@ -1,3 +1,6 @@
-- @folders.each do |key|
+- unless @folders
+  %h1 No folders associated
+
+- @folders&.each do |key|
   .row
     = link_to key.humanize, ambiant_change_path( ambiant: key ), class: 'btn btn-primary btn-lg col-12 my-buttons', role: 'button'

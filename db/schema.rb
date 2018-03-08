@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307113626) do
+ActiveRecord::Schema.define(version: 20180308135129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "folders_lists", force: :cascade do |t|
-    t.string "guid"
+    t.string "guid", null: false
     t.string "url_hash"
     t.string "folders"
     t.datetime "created_at", null: false

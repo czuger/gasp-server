@@ -10,8 +10,9 @@ class Email
     app.add_import 'lib/tasks/folders.rake'
     # this loads the Rakefile and other imports
     app.load_rakefile
+    puts 'Rakefile loaded'
 
-    app['email:send'].invoke( guid )
+    p app['email:send'].invoke( guid )
   end
 
 end

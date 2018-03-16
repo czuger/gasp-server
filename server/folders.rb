@@ -31,6 +31,7 @@ class Folders
       puts 'About to close socket'
       socket.close
 
+    puts 'About to send email'
       Email.send(fl.guid )
   end
 

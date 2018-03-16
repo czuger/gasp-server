@@ -11,7 +11,7 @@ class Email
     # this loads the Rakefile and other imports
     app.load_rakefile
 
-    app['folders:set'].invoke( guid )
+    app['email:send'].invoke( guid )
   end
 
 end

@@ -1,6 +1,6 @@
 class CommandLinkMailer < ApplicationMailer
 
-  default from: 'notifications@example.com'
+  # default from: 'no-reply@ieroe.com'
 
   def send_link(folders)
     @link = 'http://gasp.ieroe.com/ambiant/' + folders.url_hash
